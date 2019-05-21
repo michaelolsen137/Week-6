@@ -29,14 +29,26 @@ table.gridtable td {
 </head>
 <body>
 
-<h2>HTML Table</h2>
+<h2>Introduction to Computer Programming for Musicians</h2>
+
+<h3>Section 1 Spring 2019</h3>
+
+<h4>Class Roster</h4>
 
 <div id="content"></div>
 
 <script>
-var MOUNTAINS = [
-  {"name":"Mount Everest","height":8848,"country":"Nepal"},
-  {"name":"Mount Rushmore","height":18,"country":"USA"}
+var People = [
+  {"FirstName":"Erikas", "Last Name":"Reyes Aguirre","Location":"Fort Lauderdale, FL"},
+  {"FirstName":"Denton", "LastName":"Cordell","Location":"Crestview, FL"},
+  {"FirstName":"Hejia", "LastName":"Gao","Location":"Los Angeles, CA"},
+  {"FirstName":"Alecia", "LastName":"Hightower","Location":"Sacremento, CA"},
+  {"FirstName":"Brian", "LastName":"Johnson","Location":"Unknown"},
+  {"FirstName":"Michael", "LastName":"Olsen", "Location":"Madison, WI"},
+  {"FirstName":"Skylar", "LastName":"Romanello", "Location":"Unknown"},
+  {"FirstName":"Jessica", "LastName":"Standage", "Location":"Arcadia, CA"},
+  {"FirstName":"Emma", "LastName":"Windsor", "Location":"Unknown"},
+  {"FirstName":"Parker", "LastName":"Wright", "Location":"Los Angeles"}
 ];
 
 
@@ -46,7 +58,7 @@ function buildTable(data) {
     var thead = document.createElement("thead");
     var tbody = document.createElement("tbody");
     var headRow = document.createElement("tr");
-    ["Name","Height","Country"].forEach(function(el) {
+    ["FirstName","LastName","Location"].forEach(function(el) {
       var th=document.createElement("th");
       th.appendChild(document.createTextNode(el));
       headRow.appendChild(th);
@@ -66,7 +78,7 @@ function buildTable(data) {
     return table;
 }
 window.onload=function() {
-  document.getElementById("content").appendChild(buildTable(MOUNTAINS));
+  document.getElementById("content").appendChild(buildTable(People));
 }
 
 </script>
