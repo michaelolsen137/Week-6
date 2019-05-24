@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+</style>
+</head>
+<body>
+
+<h1>This is my big header</h1>
+
+<p>This is my paragraph that I get to make. It's a really cool paragraph that was made by using HTML. Pretty cool, huh?If you want to see how I made this paragraph, just <a href="https://www.w3schools.com/tags/tag_p.asp" target="_blank">Visit W3Schools.com!</a> </p>
+
+<img id="pic" src="https://www.berklee.edu/sites/default/files/styles/scale_to_970px_width/public/Berklee_Online_Large_Stacked_Web.png?itok=oTiRpRA2">
+
+<ul>
+	<li>item</li>
+    <li>item</li>
+  <ol>
+    <li>type="1">item</li>
+    <li>type="1">item</li>
+  </ol>
+</ul>
+
+<h4>Class Roster</h4>
+
+<div id="content"></div>
+
+<script>
+var People = [
+  {"FirstName":"Erikas", "Last Name":"Reyes Aguirre","Location":"Fort Lauderdale, FL"},
+  {"FirstName":"Denton", "LastName":"Cordell","Location":"Crestview, FL"},
+  {"FirstName":"Hejia", "LastName":"Gao","Location":"Los Angeles, CA"},
+  {"FirstName":"Alecia", "LastName":"Hightower","Location":"Sacremento, CA"},
+  {"FirstName":"Brian", "LastName":"Johnson","Location":"Unknown"},
+  {"FirstName":"Michael", "LastName":"Olsen", "Location":"Madison, WI"},
+  {"FirstName":"Skylar", "LastName":"Romanello", "Location":"Unknown"},
+  {"FirstName":"Jessica", "LastName":"Standage", "Location":"Arcadia, CA"},
+  {"FirstName":"Emma", "LastName":"Windsor", "Location":"Unknown"},
+  {"FirstName":"Parker", "LastName":"Wright", "Location":"Los Angeles"}
+];
+
+
+function buildTable(data) {
+    var table = document.createElement("table");
+    table.className="gridtable";
+    var thead = document.createElement("thead");
+    var tbody = document.createElement("tbody");
+    var headRow = document.createElement("tr");
+    ["FirstName","LastName","Location"].forEach(function(el) {
+      var th=document.createElement("th");
+      th.appendChild(document.createTextNode(el));
+      headRow.appendChild(th);
+    });
+    thead.appendChild(headRow);
+    table.appendChild(thead);
+    data.forEach(function(el) {
+      var tr = document.createElement("tr");
+      for (var o in el) {
+        var td = document.createElement("td");
+        td.appendChild(document.createTextNode(el[o]))
+        tr.appendChild(td);
+      }
+      tbody.appendChild(tr);
+    });
+    table.appendChild(tbody);
+    return table;
+}
+window.onload=function() {
+  document.getElementById("content").appendChild(buildTable(People));
+}
+
+</script>
+
+</body>
+</html>
